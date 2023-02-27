@@ -6,6 +6,8 @@ import { useParams, Link } from 'react-router-dom';
 export function Pokemon(){
     const { name } = useParams()
     const [pokemon, setPokemon] = useState({})
+    const spriteObjects = Object.entries(pokemon.sprites || {})
+    .filter(([key, value]) => typeof value === "string")
     
 //Calls pokeapi and sets the pokemon based on their name
     useEffect(() => {
@@ -15,19 +17,15 @@ export function Pokemon(){
     }, [name])
 
 //filters through and maps out each sprite name and image into a list item
-    const sprites = Object.entries(pokemon.sprites || {})
-    .filter(([key, value]) => typeof value === "string")
-    .map(([key, value]) => {
-        return (<li id="sprites">
+    const sprites = spriteObjects.map(([key, value]) => {
+        return (<li id="sprites" key={spriteObjects[key]}>
             <img src={value} alt="sprite"/>
             <h3>{key}</h3>
         </li>
     )})
 
 //filters and maps through the sprites and returns the 1 that matches "front_default for the main picture"
-    const pic = Object.entries(pokemon.sprites || {})
-    .filter(([key, value]) => typeof value === "string")
-    .map(([key, value]) => {
+    const pic = spriteObjects.map(([key, value]) => {
         if(key === "front_default"){
         return <img src={value} alt={pokemon.name} id="pokePic"/>
         }
@@ -37,7 +35,7 @@ export function Pokemon(){
     const abilities = Object.entries(pokemon.abilities || [])
     .map(([key, value]) => {
         return (
-            <li><b>{key}- {pokemon.abilities[key].ability.name}</b></li>
+            <li key={pokemon.abilities[key]}><b>{key}- {pokemon.abilities[key].ability.name}</b></li>
         )
     })
 
@@ -45,7 +43,7 @@ export function Pokemon(){
     const moves = Object.entries(pokemon.moves || [])
     .map(([key, value]) => {
         return (
-            <li>{key}- {pokemon.moves[key].move.name}</li>
+            <li key={pokemon.moves[key]}>{pokemon.moves[key].move.name}</li>
         )
     })
 
@@ -53,11 +51,11 @@ export function Pokemon(){
     const types = Object.entries(pokemon.types || [])
     .map(([key, value]) => {
         return (
-            <li><b>{key}- {pokemon.types[key].type.name}</b></li>
+            <li key={pokemon.types[key]}><b>{key}- {pokemon.types[key].type.name}</b></li>
         )
     })
     
-    const pokeName = pokemon.name?.toUpperCase()
+    const pokeName = pokemon.name?.toUpperCase() || ""
   
     console.log(pokemon)
     return(
