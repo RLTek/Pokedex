@@ -28,11 +28,60 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#poke-list{
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+li{
+  list-style: none;
+}
+
+#sprites{
+  display: inline-flex;
+  font-size: .8em;
+  
+}
+
+#moves{
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#pokePic{
+  width: 12em;
+  height: 12em;
+}
+
+#poke-hero{
+  display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#poke-info{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+#sprites{
+  display: inline-flex;
+  justify-content: center;
+}
+
+h1{
+  color: goldenrod;
+  text-shadow: -2px -2px black, 2px 2px black, -2px 2px black, 2px -2px black;
+  font-size: 50px;
+}
+
+#search{
+  margin-right: 1em;
+  margin-left: .5em
 }
