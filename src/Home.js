@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 
 
@@ -10,6 +10,8 @@ export function Home(){
     const [search, setSearch] = useState("");
     const [type, setType] = useState("all")
     const [pokemonTypes, setPokemonTypes] = useState({})
+
+    const navigate = useNavigate();
 
 //calls the API to get a full list of pokemon
     useEffect(() => {
@@ -35,6 +37,13 @@ export function Home(){
       <Link to={`/pokemon/${j.pokemon.name}`}><h3>{j.pokemon.name}</h3></Link>
     </div>)
 
+
+//Handles sumbission of the search form
+    const handleSubmit = event => {
+      event.preventDefault();
+      navigate(`/pokemon/${search}`)
+      
+    }
     
   
   
@@ -47,9 +56,11 @@ export function Home(){
     <div className="App">
       <h1>Pokedex</h1>
 
+    <form onSubmit={handleSubmit}>
       <input type="text" value={search} onChange ={e => setSearch(e.target.value.toLowerCase())}/>
-      <Link to={`/pokemon/${search}`}><button id="search">Search</button></Link>
-      
+      <input type="submit" value="search" />
+    </form>
+
       <select value={type} onChange={e => setType(e.target.value)}>
       <option>all</option>
         <option>normal</option>
