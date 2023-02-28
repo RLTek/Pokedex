@@ -85,3 +85,16 @@ h1{
   margin-right: 1em;
   margin-left: .5em
 }
+
+#movesPokeList{
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+#moveDisplay{
+  text-align: center;
+}

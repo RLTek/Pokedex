@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import './App.css';
-import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+
 
 export function Pokemon(){
     const { name } = useParams()
@@ -15,6 +15,8 @@ export function Pokemon(){
         .then(i => i.json())
         .then(i => setPokemon(i))
     }, [name])
+    
+
 
 //filters through and maps out each sprite name and image into a list item
     const sprites = spriteObjects.map(([key, value]) => {
@@ -43,7 +45,7 @@ export function Pokemon(){
     const moves = Object.entries(pokemon.moves || [])
     .map(([key, value]) => {
         return (
-            <li key={pokemon.moves[key]}>{pokemon.moves[key].move.name}</li>
+            <Link to={`/move/${pokemon.moves[key].move.name}`} key={pokemon.moves[key]}><li >{pokemon.moves[key].move.name}</li></Link>
         )
     })
 
