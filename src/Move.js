@@ -8,14 +8,13 @@ export function Move(){
     const [moveData, setMoveData] = useState({})
     const { name } = useParams()
 
-
+//Calls API for to get info for chosen move
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/move/${name}`)
         .then(i => i.json())
         .then(i => setMoveData(i))
     }, [name])
 
-    console.log(moveData)
 
 //maps through which pokemon can learn the move and displays them
     const learnedByPokemon = moveData.learned_by_pokemon?.map(pokemon => <div>

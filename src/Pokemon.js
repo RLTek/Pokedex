@@ -6,6 +6,8 @@ import { useParams, Link } from 'react-router-dom';
 export function Pokemon(){
     const { name } = useParams()
     const [pokemon, setPokemon] = useState({})
+
+//Filters through the sprites to get each sprite name
     const spriteObjects = Object.entries(pokemon.sprites || {})
     .filter(([key, value]) => typeof value === "string")
     
@@ -16,8 +18,7 @@ export function Pokemon(){
         .then(i => setPokemon(i))
     }, [name])
     
-
-
+    
 //filters through and maps out each sprite name and image into a list item
     const sprites = spriteObjects.map(([key, value]) => {
         return (<li id="sprites" key={spriteObjects[key]}>
@@ -57,6 +58,7 @@ export function Pokemon(){
         )
     })
     
+    //Sets the name of the pokemon selected
     const pokeName = pokemon.name?.toUpperCase() || ""
   
     console.log(pokemon)
