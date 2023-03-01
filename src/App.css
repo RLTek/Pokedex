@@ -99,7 +99,7 @@ h1{
   text-align: center;
 }
 
-@media only screen and (max-width: 412px){
+@media only screen and (max-width: 450px){
   #poke-info{
     justify-content: center;
     
