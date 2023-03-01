@@ -68,7 +68,7 @@ export function Pokemon(){
             <Link to="/"><button>Home</button></Link>
             <h2>{pokeName}</h2>
             
-            <div id="pokedex-data"> 
+        <div id="pokedex-data"> 
             <div id="poke-hero">
                 {pic}  
             <div id="poke-info">
@@ -94,10 +94,12 @@ export function Pokemon(){
                         {moves}
                     </ol>
                 </div>
-                <ol id="spites">
-                    {sprites}
-                </ol>
-            </div>
+                <div>
+                    <ol id="spites">
+                        {sprites}
+                    </ol>
+                </div>
+        </div>
             
         </div>
     )

@@ -98,3 +98,17 @@ h1{
 #moveDisplay{
   text-align: center;
 }
+
+@media only screen and (max-width: 412px){
+  #poke-info{
+    justify-content: center;
+    
+  }
+  #moves{
+    margin-right: 1em;
+
+  }
+  #sprites{
+    margin-right: 2em;
+  }
+}
