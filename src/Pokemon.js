@@ -30,7 +30,9 @@ export function Pokemon(){
 //filters and maps through the sprites and returns the 1 that matches "front_default for the main picture"
     const pic = spriteObjects.map(([key, value]) => {
         if(key === "front_default"){
-        return <img src={value} alt={pokemon.name} id="pokePic"/>
+        return <img src={value} alt={pokemon.name} id="pokePic" key="pic1"/>
+        } else {
+            return ""
         }
     })
 
@@ -38,7 +40,7 @@ export function Pokemon(){
     const abilities = Object.entries(pokemon.abilities || [])
     .map(([key, value]) => {
         return (
-            <li key={pokemon.abilities[key]}><b>{key}- {pokemon.abilities[key].ability.name}</b></li>
+            <li key={pokemon[key]}><b>{pokemon.abilities[key].ability.name}</b></li>
         )
     })
 
@@ -46,7 +48,7 @@ export function Pokemon(){
     const moves = Object.entries(pokemon.moves || [])
     .map(([key, value]) => {
         return (
-            <Link to={`/move/${pokemon.moves[key].move.name}`} key={pokemon.moves[key]}><li >{pokemon.moves[key].move.name}</li></Link>
+            <Link to={`/move/${pokemon.moves[key].move.name}`} key={pokemon[key]}><li >{pokemon.moves[key].move.name}</li></Link>
         )
     })
 
@@ -54,14 +56,14 @@ export function Pokemon(){
     const types = Object.entries(pokemon.types || [])
     .map(([key, value]) => {
         return (
-            <li key={pokemon.types[key]}><b>{key}- {pokemon.types[key].type.name}</b></li>
+            <p key={pokemon.types[key]}><b>{pokemon.types[key].type.name.toUpperCase()}</b></p>
         )
     })
     
     //Sets the name of the pokemon selected
     const pokeName = pokemon.name?.toUpperCase() || ""
   
-    console.log(pokemon)
+    
     return(
         <div>
             <h1>Pokedex</h1>
