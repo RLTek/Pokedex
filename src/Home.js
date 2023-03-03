@@ -22,21 +22,26 @@ export function Home(){
     fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
     .then(i => i.json())
     .then(i =>setPokemon(i))
+    .catch(error => console.log(error.message))
   }, [])
 
 //calls the API if a type of pokemon is selected 
   useEffect(() => {
+    if(type !== "all"){
     fetch(`https://pokeapi.co/api/v2/type/${type}`)
     .then(j => j.json())
     .then(j =>setPokemonTypes(j))
-  }, [type])
+    .catch(error => console.log(error.message))
+}}, [type])
 
 //calls the API if a generation is selected
   useEffect(() => {
+    if(generation !== "all"){
     fetch(`https://pokeapi.co/api/v2/generation/${generation}`)
     .then(k => k.json())
     .then(k =>setGenerationName(k))
-  }, [generation])
+    .catch(error => console.log(error.message))
+}}, [generation])
 
 //maps through the results of the pokemon API being called and lists each pokemon
     const pokemonList = pokemon.results?.map(i => <div>
@@ -89,6 +94,7 @@ export function Home(){
       </select>
     )
 
+  //JSX for when generation is selected
     const generationNames =(
       <select value={generation} onChange={e => setGeneration(e.target.value)}>
         <option>all</option>
@@ -132,10 +138,10 @@ export function Home(){
 
     <div onChange={handleChange}>
       <p>Filter by:</p>
-      <label for="type">Type</label>
+      <label htmlFor="type">Type</label>
       <input type="radio" id="type-choice" value="type" name="filterBy" defaultChecked></input>
       <span> or </span>
-      <label for="generation">Generation</label>
+      <label htmlFor="generation">Generation</label>
       <input type="radio" id="generation-choice" value="generation" name="filterBy"></input>
     </div>
 
@@ -146,7 +152,7 @@ export function Home(){
       
     
       <div id="poke-list">
-        {filter === "type" && type === "all" ? pokemonList : filter === "type" && type !== "all" ? typeList : filter === "generation" && generation === "all" ? pokemonList : filter === "generation" && type !== "all" ? generationList : typeList} 
+        {filter === "type" && type === "all" ? pokemonList : filter === "type" && type !== "all" ? typeList : filter === "generation" && generation === "all" ? pokemonList : filter === "generation" && generation !== "all" ? generationList : typeList} 
         
       </div>
     </div>
