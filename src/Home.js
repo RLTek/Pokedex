@@ -62,6 +62,7 @@ export function Home(){
 //Handles sumbission of the search form
     const handleSubmit = event => {
       event.preventDefault();
+      search === "" ? alert('Please enter a Pokemon') :
       navigate(`/pokemon/${search}`)
       
     }

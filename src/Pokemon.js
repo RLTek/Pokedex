@@ -16,6 +16,7 @@ export function Pokemon(){
         fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
         .then(i => i.json())
         .then(i => setPokemon(i))
+        .catch(error => alert('You entered an invalid Pokemon. Return Home and try your search again.'))
     }, [name])
     
     
@@ -63,6 +64,9 @@ export function Pokemon(){
     //Sets the name of the pokemon selected
     const pokeName = pokemon.name?.toUpperCase() || ""
   
+    
+        
+    
     
     return(
         <div>
