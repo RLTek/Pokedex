@@ -44,17 +44,20 @@ export function Home(){
 }}, [generation])
 
 //maps through the results of the pokemon API being called and lists each pokemon
-    const pokemonList = pokemon.results?.map(i => <div>
+    const pokemonList = pokemon.results?.map(i => 
+    <div key={i.name} className="pokemon">
       <Link to={`/pokemon/${i.name}`}><h3>{i.name}</h3></Link>
-    </div>)
+    </div>
+    )
 
+    
 //maps through the results of the pokemonTypes if a type is selected
-    const typeList = pokemonTypes.pokemon?.map(j => <div>
+    const typeList = pokemonTypes.pokemon?.map(j => <div key={j.pokemon.name}>
       <Link to={`/pokemon/${j.pokemon.name}`}><h3>{j.pokemon.name}</h3></Link>
     </div>)
 
 //maps through the resuls of generation if a generation is selected
-    const generationList = generationName.pokemon_species?.map(k => <div>
+    const generationList = generationName.pokemon_species?.map(k => <div key={k.name}>
       <Link to={`/pokemon/${k.name}`}><h3>{k.name}</h3></Link>
     </div>)
 

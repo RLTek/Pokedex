@@ -27,6 +27,7 @@ export function Move(){
     const power = moveData.power || 0;
     const pp = moveData.pp || 0;
     const moveType = moveData.type?.name || "";
+    const effectChance = moveData.effect_chance || ""
 
 //maps through effect entries to list each one
     const effectOfMove = moveData.effect_entries?.map(entry => <p>{entry.effect}</p>)
@@ -43,6 +44,7 @@ export function Move(){
                     <li>Accuracy: {accuracy}</li>
                     <li>PP: {pp}</li>
                     <li>Power: {power}</li>  
+                    <li>Effect Chance: {effectChance}</li>
                 </ul>
                 {effectOfMove}
             </div>

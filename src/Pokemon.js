@@ -65,8 +65,6 @@ export function Pokemon(){
     const pokeName = pokemon.name?.toUpperCase() || ""
   
     
-        
-    
     
     return(
         <div>
@@ -80,7 +78,7 @@ export function Pokemon(){
             <div id="poke-info">
                 <div>
                     <h3>Height: {pokemon.height}m</h3>
-                    <h3>Weight: {pokemon.weight}km</h3>
+                    <h3>Weight: {pokemon.weight}kg</h3>
                 </div>
                 <div>
                     <h3>Types:</h3>
