@@ -22,7 +22,7 @@ export function Pokemon(){
     
 //filters through and maps out each sprite name and image into a list item
     const sprites = spriteObjects.map(([key, value]) => {
-        return (<li id="sprites" key={spriteObjects[key]}>
+        return (<li id="sprites" key={key}>
             <img src={value} alt="sprite"/>
             <h3>{key}</h3>
         </li>
@@ -41,7 +41,7 @@ export function Pokemon(){
     const abilities = Object.entries(pokemon.abilities || [])
     .map(([key, value]) => {
         return (
-            <Link to={`/ability/${pokemon.abilities[key].ability.name}`} key={pokemon[key]}><li><b>{pokemon.abilities[key].ability.name}</b></li></Link>
+            <Link to={`/ability/${pokemon.abilities[key].ability.name}`} key={pokemon.abilities[key].slot}><li><b>{pokemon.abilities[key].ability.name}</b></li></Link>
         )
     })
 
@@ -49,7 +49,7 @@ export function Pokemon(){
     const moves = Object.entries(pokemon.moves || [])
     .map(([key, value]) => {
         return (
-            <Link to={`/move/${pokemon.moves[key].move.name}`} key={pokemon[key]}><li >{pokemon.moves[key].move.name}</li></Link>
+            <Link to={`/move/${pokemon.moves[key].move.name}`} key={pokemon.moves[key].move.name}><li >{pokemon.moves[key].move.name}</li></Link>
         )
     })
 
@@ -57,9 +57,10 @@ export function Pokemon(){
     const types = Object.entries(pokemon.types || [])
     .map(([key, value]) => {
         return (
-            <p key={pokemon.types[key]}><b>{pokemon.types[key].type.name.toUpperCase()}</b></p>
+            <p key={pokemon.types[key].slot}><b>{pokemon.types[key].type.name.toUpperCase()}</b></p>
         )
     })
+    console.log(spriteObjects)
     
     //Sets the name of the pokemon selected
     const pokeName = pokemon.name?.toUpperCase() || ""
