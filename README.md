@@ -1,4 +1,22 @@
-# Getting Started with Create React App
+Project Title: Pokedex
+
+Description:
+A pokedex app for looking up your favorite Pokemon!
+
+Features:
+Home page - Search by pokemon, filter by type or generation
+Pokemon page- view the info for your favorite pokemon
+Move page- view the information for the selected move
+
+How to use:
+On the home page you can click a pokemon, search for a specific pokemon, filter by type or by generation. Click on a pokemon to be brought to the
+Pokemon page where you can view the information about the selected pokemon including a list of moves that it can learn. Click on a move to be brought to the moves
+page to see the information about that move and all of the Pokemon that can learn it.
+
+Technologies: React, react router, pokeapi.co, html, css, javascript
+
+
+#Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
