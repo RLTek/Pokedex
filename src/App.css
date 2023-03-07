@@ -86,7 +86,7 @@ h1{
   margin-left: .5em
 }
 
-#movesPokeList{
+#movesPokeList, #ability-list{
   display: flex;
   gap: 1em;
   flex-wrap: wrap;

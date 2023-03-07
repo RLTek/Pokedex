@@ -41,7 +41,7 @@ export function Pokemon(){
     const abilities = Object.entries(pokemon.abilities || [])
     .map(([key, value]) => {
         return (
-            <li key={pokemon[key]}><b>{pokemon.abilities[key].ability.name}</b></li>
+            <Link to={`/ability/${pokemon.abilities[key].ability.name}`} key={pokemon[key]}><li><b>{pokemon.abilities[key].ability.name}</b></li></Link>
         )
     })
 
