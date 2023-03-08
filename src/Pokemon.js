@@ -60,7 +60,7 @@ export function Pokemon(){
             <p key={pokemon.types[key].slot}><b>{pokemon.types[key].type.name.toUpperCase()}</b></p>
         )
     })
-    console.log(spriteObjects)
+    
     
     //Sets the name of the pokemon selected
     const pokeName = pokemon.name?.toUpperCase() || ""
@@ -87,23 +87,25 @@ export function Pokemon(){
                 </div>
                 <div id="abilities">
                     <h3>Abilities:</h3>
-                    <ol id="abilities">
+                    <ol>
                         {abilities}
                     </ol>
                 </div>
             </div>  
                 </div> 
                 <div>
+                    <h3>Sprites:</h3>
+                    <ol id="spites">
+                        {sprites}
+                    </ol>
+                </div>
+                <div>
                     <h3>Moves:</h3>
                     <ol id="moves">
                         {moves}
                     </ol>
                 </div>
-                <div>
-                    <ol id="spites">
-                        {sprites}
-                    </ol>
-                </div>
+                
         </div>
             
         </div>

@@ -93,8 +93,6 @@ export function Home(){
         <option>dragon</option>
         <option>dark</option>
         <option>fairy</option>
-        <option>unknown</option>
-        <option>shadow</option>
       </select>
     )
 

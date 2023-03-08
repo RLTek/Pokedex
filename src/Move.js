@@ -17,7 +17,7 @@ export function Move(){
 
 
 //maps through which pokemon can learn the move and displays them
-    const learnedByPokemon = moveData.learned_by_pokemon?.map(pokemon => <div>
+    const learnedByPokemon = moveData.learned_by_pokemon?.map(pokemon => <div key={pokemon.name}>
         <Link to={`/pokemon/${pokemon.name}`}><h3>{pokemon.name}</h3></Link>
       </div>)
 
@@ -30,7 +30,7 @@ export function Move(){
     const effectChance = moveData.effect_chance || ""
 
 //maps through effect entries to list each one
-    const effectOfMove = moveData.effect_entries?.map(entry => <p>{entry.effect}</p>)
+    const effectOfMove = moveData.effect_entries?.map(entry => <p key={entry}>{entry.effect}</p>)
 
     return(
         <div id="move-display">
