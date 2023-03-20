@@ -127,6 +127,12 @@ export function Home(){
      }
     } 
 
+//Filters through Pokemon as the user types a name and displays them
+    const filteredList = pokemon.results?.filter(p => p.name.includes(search) || "")
+    .map(poke => 
+      <div key={poke.name} className="pokemon">
+        <Link to={`/pokemon/${poke.name}`}><h3>{poke.name}</h3></Link>
+      </div>)
   
 
   return (
@@ -148,7 +154,7 @@ export function Home(){
     </div>
 
     <div id="filter-choice">
-     {filter === "type" ? selectByType : generationNames}
+     {search !== "" ? filteredList : filter === "type" ? selectByType : generationNames}
 
     </div>
       
