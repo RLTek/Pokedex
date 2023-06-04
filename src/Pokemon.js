@@ -17,7 +17,7 @@ export function Pokemon(){
         .then(i => i.json())
         .then(i => setPokemon(i))
         .catch(error => alert('You entered an invalid Pokemon. Return Home and try your search again.'))
-    }, [name])
+    }, [])
     
     
 //filters through and maps out each sprite name and image into a list item
